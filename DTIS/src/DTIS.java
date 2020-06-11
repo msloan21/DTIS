@@ -39,7 +39,7 @@ public class DTIS {
 		//to see if opposites match
 		String openings = input.substring(0, input.length()/2);
 		String closings = input.substring((input.length()/2), input.length());
-		
+
 		return compare(openings, closings);
 	}
 	
@@ -54,13 +54,13 @@ public class DTIS {
 		return leftOvers.size() <= 0;
 	}
 	
-	public boolean compare(String openings, String closeings) {
-		for(int i = 0; i < openings.length(); i++) {
+	public boolean compare(String openings, String closings) {
+		for(int i = 0; i < openings.length(); ++i) {
 			String currOpening = String.valueOf(openings.charAt(i));
-			int currOpeningIndex = openings.indexOf(currOpening);
 			//now find what the closing char should be and see if it matches
-			String closingChar = closingChars.get(currOpeningIndex);
-			if(!closingChar.equals(String.valueOf(closeings.charAt(i)))) {
+			String currOpeningOpposite = String.valueOf(closings.charAt((closings.length() - i)-1));  //get the closing char and the opposite end of the string
+			String closingShoulBe = closingChars.get(openingChars.indexOf(currOpening));
+			if(!currOpeningOpposite.equals(closingShoulBe)) {
 				return false;
 			}
 		}

@@ -38,6 +38,7 @@ public class DTISTest {
 		
 		input = "([{}])";
 		assertTrue(dtis.run(input));
+		
 	}
 	
 	@Test
@@ -53,6 +54,9 @@ public class DTISTest {
 		assertFalse(dtis.run(input));
 		
 		input = "   ";
+		assertFalse(dtis.run(input));
+		
+		input = "{[}]";
 		assertFalse(dtis.run(input));
 	}
 	
@@ -70,7 +74,6 @@ public class DTISTest {
 	@Test
 	public void testIfValidFalse() {
 		String index = "X";
-		System.out.println(dtis.checkIfInCharLists(index));
 		assertFalse(dtis.checkIfInCharLists(index));
 		
 		index = "1";
